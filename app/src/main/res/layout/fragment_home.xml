@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:listData="@{viewModel.quizzes}"
+            app:quizListData="@{viewModel.quizzes}"
             tools:itemCount="2"
             tools:listitem="@layout/quiz_item" />
 

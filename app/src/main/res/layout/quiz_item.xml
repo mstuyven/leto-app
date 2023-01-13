@@ -33,11 +33,11 @@
             android:id="@+id/quiz_creator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{property.creator.name}"
+            android:text="@{@string/quiz_creator(property.creator.name)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Alice" />
+            tools:text="By Alice" />
 
     </LinearLayout>
 

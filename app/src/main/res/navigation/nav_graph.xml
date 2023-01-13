@@ -9,14 +9,26 @@
         android:id="@+id/homeFragment"
         android:name="com.mirostuyven.leto.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_joinGame"
             app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_viewQuizDetail"
+            app:destination="@id/quizDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
         android:name="com.mirostuyven.leto.GameFragment"
         android:label="fragment_game"
         tools:layout="@layout/fragment_game" />
+    <fragment
+        android:id="@+id/quizDetailFragment"
+        android:name="com.mirostuyven.leto.quiz_detail.QuizDetailFragment"
+        android:label="fragment_quiz_detail"
+        tools:layout="@layout/fragment_quiz_detail">
+        <argument
+            android:name="quizId"
+            app:argType="string" />
+    </fragment>
 </navigation>

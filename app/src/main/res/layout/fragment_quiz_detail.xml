@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mirostuyven.leto.quiz_detail.QuizDetailViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        tools:context=".quiz_detail.QuizDetailFragment">
+
+        <TextView
+            android:id="@+id/quiz_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.quiz.title}"
+            android:textSize="30sp"
+            tools:text="Trivia" />
+
+        <TextView
+            android:id="@+id/quiz_creator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/quiz_creator(viewModel.quiz.creator.name)}"
+            tools:text="By Alice" />
+
+        <TextView
+            android:id="@+id/quiz_question_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/quiz_question_count(viewModel.quiz.questions.size)}"
+            tools:text="2 questions" />
+
+        <Button
+            android:id="@+id/start_quiz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:insetTop="24dp"
+            android:insetBottom="24dp"
+            android:text="@string/start_quiz"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</layout>

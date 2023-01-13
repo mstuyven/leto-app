@@ -2,6 +2,7 @@ package com.mirostuyven.leto.home
 
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
@@ -10,8 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mirostuyven.leto.R
 import com.mirostuyven.leto.databinding.QuizItemBinding
 import com.mirostuyven.leto.network.Quiz
+import java.util.function.Consumer
 
-class QuizListAdapter : ListAdapter<Quiz, QuizListAdapter.ViewHolder>(DiffCallback) {
+class QuizListAdapter(private val onClick: (Quiz) -> Unit) : ListAdapter<Quiz, QuizListAdapter.ViewHolder>(DiffCallback) {
 
     class ViewHolder(private var binding: QuizItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(quiz: Quiz) {
@@ -36,6 +38,9 @@ class QuizListAdapter : ListAdapter<Quiz, QuizListAdapter.ViewHolder>(DiffCallba
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val quiz = getItem(position)
+        holder.itemView.setOnClickListener {
+            onClick(quiz)
+        }
         holder.bind(quiz)
     }
 }
