@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.RawValue
 
 @Parcelize
-class User(
+data class User(
     val id: String,
     val name: String
 ) : Parcelable {}

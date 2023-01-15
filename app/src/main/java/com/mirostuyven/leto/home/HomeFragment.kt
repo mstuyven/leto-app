@@ -27,7 +27,7 @@ class HomeFragment : Fragment() {
         binding.viewModel = model
         binding.lifecycleOwner = this
         binding.joinGame.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionJoinGame())
+            findNavController().navigate(HomeFragmentDirections.actionStartLogin())
         }
         binding.quizzesList.adapter = QuizListAdapter { quiz ->
             findNavController().navigate(HomeFragmentDirections.actionViewQuizDetail(quiz.id))
