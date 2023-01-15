@@ -6,15 +6,6 @@ import com.mirostuyven.leto.network.Quiz
 import com.mirostuyven.leto.network.User
 
 
-/**
- * Database entities go in this file. These are responsible for reading and writing from the
- * database.
- */
-
-
-/**
- * DatabaseVideo represents a video entity in the database.
- */
 @Entity
 data class DatabaseQuiz constructor(
     @PrimaryKey

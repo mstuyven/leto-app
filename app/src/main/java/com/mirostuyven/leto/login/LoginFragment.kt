@@ -1,5 +1,6 @@
 package com.mirostuyven.leto.login
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.mirostuyven.leto.R
 import com.mirostuyven.leto.databinding.FragmentLoginBinding
+import com.mirostuyven.leto.home.HomeFragmentDirections
 
 class LoginFragment : Fragment() {
 
@@ -37,9 +39,12 @@ class LoginFragment : Fragment() {
             model.doLogin { token ->
                 binding.loginProgress.hide()
                 if (token != null) {
-                    findNavController().popBackStack()
+                    val preferences = context?.getSharedPreferences("leto", Context.MODE_PRIVATE)
+                    if (preferences?.edit()?.putString("auth_token", token)?.commit() == true) {
+                        findNavController().popBackStack()
+                    }
                 } else {
-
+                    // Wrong login details
                 }
             }
         }

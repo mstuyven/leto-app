@@ -14,19 +14,19 @@ interface QuizDao {
 }
 
 @Database(entities = [DatabaseQuiz::class], version = 1)
-abstract class QuizzesDatabase : RoomDatabase() {
+abstract class LetoDatabase : RoomDatabase() {
     abstract val quizDao: QuizDao
 }
 
-private lateinit var INSTANCE: QuizzesDatabase
+private lateinit var INSTANCE: LetoDatabase
 
-fun getDatabase(context: Context): QuizzesDatabase {
-    synchronized(QuizzesDatabase::class.java) {
+fun getDatabase(context: Context): LetoDatabase {
+    synchronized(LetoDatabase::class.java) {
         if (!::INSTANCE.isInitialized) {
             INSTANCE = Room.databaseBuilder(
                 context.applicationContext,
-                QuizzesDatabase::class.java,
-                "quizzes"
+                LetoDatabase::class.java,
+                "leto"
             ).build()
         }
     }
