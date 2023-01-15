@@ -33,7 +33,9 @@ class LoginFragment : Fragment() {
             model.password.value = it.toString()
         }
         binding.loginButton.setOnClickListener {
+            binding.loginProgress.show()
             model.doLogin { token ->
+                binding.loginProgress.hide()
                 if (token != null) {
                     findNavController().popBackStack()
                 } else {
