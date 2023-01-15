@@ -20,6 +20,6 @@ Dummy user data
 |---|---|
 |![](images/home.jpg)|![](images/quiz_detail.jpg)
 
-|Light mode|
-|---|
-|![](images/home_light.jpg)|
+|Light mode|Home screen loading|
+|---|---|
+|![](images/home_light.jpg)|![](images/loading_light.jpg)|
