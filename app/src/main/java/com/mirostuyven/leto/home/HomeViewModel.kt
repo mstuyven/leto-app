@@ -13,15 +13,21 @@ class HomeViewModel : ViewModel() {
     val quizzes: LiveData<List<Quiz>>
         get() = _quizzes
 
+    private val _quizzesLoading = MutableLiveData<Boolean>(false)
+    val quizzesLoading: LiveData<Boolean>
+        get() = _quizzesLoading
+
     init {
       getQuizzes()
     }
 
     private fun getQuizzes() {
+        _quizzesLoading.value = true
         viewModelScope.launch {
             try {
                 val data = LetoApi.service.listQuizzes().data
                 _quizzes.postValue(data)
+                _quizzesLoading.value = false
             } catch (e: Exception) {
                 println("Exception listing quizzes: $e")
                 _quizzes.postValue(listOf())

@@ -32,6 +32,13 @@ class HomeFragment : Fragment() {
         binding.quizzesList.adapter = QuizListAdapter { quiz ->
             findNavController().navigate(HomeFragmentDirections.actionViewQuizDetail(quiz.id))
         }
+        model.quizzesLoading.observe(viewLifecycleOwner) {
+            if (it) {
+                binding.quizzesProgress.show()
+            } else {
+                binding.quizzesProgress.hide()
+            }
+        }
         return binding.root
     }
 }
