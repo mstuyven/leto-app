@@ -1,36 +1,38 @@
 package com.mirostuyven.leto.home
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mirostuyven.leto.data.QuizRepository
+import com.mirostuyven.leto.data.getDatabase
 import com.mirostuyven.leto.network.LetoApi
 import com.mirostuyven.leto.network.Quiz
 import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
-    private val _quizzes = MutableLiveData<List<Quiz>>()
-    val quizzes: LiveData<List<Quiz>>
-        get() = _quizzes
+class HomeViewModel(application: Application) : AndroidViewModel(application) {
+    private val quizRepository = QuizRepository(getDatabase(application))
+
+    val quizzes = quizRepository.quizzes
 
     private val _quizzesLoading = MutableLiveData<Boolean>(false)
     val quizzesLoading: LiveData<Boolean>
         get() = _quizzesLoading
 
     init {
-      getQuizzes()
+        refreshQuizzes()
     }
 
-    private fun getQuizzes() {
+    private fun refreshQuizzes() {
         _quizzesLoading.value = true
         viewModelScope.launch {
             try {
-                val data = LetoApi.service.listQuizzes().data
-                _quizzes.postValue(data)
+                quizRepository.refreshQuizzes()
                 _quizzesLoading.value = false
             } catch (e: Exception) {
                 println("Exception listing quizzes: $e")
-                _quizzes.postValue(listOf())
             }
         }
     }
