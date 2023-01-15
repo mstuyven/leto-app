@@ -4,4 +4,7 @@
     <string name="start_quiz">Start quiz</string>
     <string name="quiz_creator">By %s</string>
     <string name="quiz_question_count">%s questions</string>
+    <string name="play">Play</string>
+    <string name="public_quizzes">Public quizzes</string>
+    <string name="code">Code</string>
 </resources>
