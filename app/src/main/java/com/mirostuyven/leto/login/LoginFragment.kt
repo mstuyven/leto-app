@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.mirostuyven.leto.R
 import com.mirostuyven.leto.databinding.FragmentLoginBinding
-import com.mirostuyven.leto.home.HomeFragmentDirections
 
 class LoginFragment : Fragment() {
 
@@ -23,7 +22,7 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding: FragmentLoginBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
         binding.viewModel = model

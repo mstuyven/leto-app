@@ -8,7 +8,7 @@ import kotlinx.parcelize.RawValue
 data class User(
     val id: String,
     val name: String
-) : Parcelable {}
+) : Parcelable
 
 @Parcelize
 data class Quiz(
@@ -16,18 +16,18 @@ data class Quiz(
     val title: String,
     val creator: User,
     val questions: @RawValue List<Question>?,
-) : Parcelable {}
+) : Parcelable
 
 @Parcelize
 data class Question(
     val id: String,
     val title: String,
     val answers: @RawValue List<Answer>?,
-) : Parcelable {}
+) : Parcelable
 
 @Parcelize
 data class Answer(
     val id: String,
     val title: String,
     val correct: Boolean?,
-) : Parcelable {}
+) : Parcelable

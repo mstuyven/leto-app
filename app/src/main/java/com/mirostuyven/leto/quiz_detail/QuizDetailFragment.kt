@@ -7,13 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import com.mirostuyven.leto.R
-import com.mirostuyven.leto.databinding.FragmentHomeBinding
 import com.mirostuyven.leto.databinding.FragmentQuizDetailBinding
-import com.mirostuyven.leto.home.HomeViewModel
-import com.mirostuyven.leto.home.QuizListAdapter
 
 class QuizDetailFragment : Fragment() {
     private var model: QuizDetailViewModel? = null
@@ -34,7 +29,7 @@ class QuizDetailFragment : Fragment() {
         binding.viewModel = model
         binding.lifecycleOwner = this
         binding.startQuiz.setOnClickListener {
-            println("START QUIZ!")
+            println("Start quiz!")
         }
         return binding.root
     }

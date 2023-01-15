@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
-        android:name="com.mirostuyven.leto.GameFragment"
+        android:name="com.mirostuyven.leto.game.GameFragment"
         android:label="fragment_game"
         tools:layout="@layout/fragment_game" />
     <fragment
