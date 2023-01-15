@@ -18,6 +18,30 @@
         android:orientation="vertical"
         tools:context=".home.HomeFragment">
 
+        <LinearLayout
+            android:id="@+id/welcome_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/welcome_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAppearance="?attr/textAppearanceBody1" />
+
+            <Button
+                android:id="@+id/logout_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/logout" />
+
+        </LinearLayout>
+
         <TextView
             android:id="@+id/play_title"
             android:layout_width="match_parent"
@@ -27,7 +51,7 @@
             android:textAppearance="?attr/textAppearanceHeadline4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/welcome_message" />
 
         <LinearLayout
             android:id="@+id/join_game_group"

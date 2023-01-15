@@ -43,6 +43,16 @@ class HomeFragment : Fragment() {
         val authToken = preferences?.getString("auth_token", null)
         if (authToken == null) {
             findNavController().navigate(HomeFragmentDirections.actionStartLogin())
+        } else {
+            model.loadUser(authToken)
+        }
+        model.user.observe(viewLifecycleOwner) {
+            binding.welcomeText.text = getString(R.string.welcome, it.name)
+        }
+        binding.logoutButton.setOnClickListener {
+            if (preferences?.edit()?.remove("auth_token")?.commit() == true) {
+                findNavController().navigate(HomeFragmentDirections.actionStartLogin())
+            }
         }
         return binding.root
     }

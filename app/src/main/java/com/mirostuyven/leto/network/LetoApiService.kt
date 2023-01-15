@@ -53,6 +53,9 @@ interface LetoService {
 
     @POST("session")
     suspend fun createSessionToken(@Body body: TokenRequest): TokenResponse
+
+    @GET("user/{id}")
+    suspend fun userDetail(@Path("id") id: String): DetailResponse<User>
 }
 
 object LetoApi {
